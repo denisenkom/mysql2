@@ -1029,7 +1029,7 @@ RSpec.describe Mysql2::Client do
   it "should be able to connect using plaintext password" do
     client = new_client(enable_cleartext_plugin: true)
     puts('xxxxxxxxxxxxxxxxxxxxxx')
-    puts(client.query('SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS'))
+    puts(client.query('SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS').to_a)
   end
 
   unless RUBY_VERSION =~ /1.8/
