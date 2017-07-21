@@ -1026,6 +1026,12 @@ RSpec.describe Mysql2::Client do
     expect(@client.ping).to eql(false)
   end
 
+  it "should be able to connect using plaintext password" do
+    client = new_client(enable_cleartext_plugin: true)
+    puts('xxxxxxxxxxxxxxxxxxxxxx')
+    puts(client.query('SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS'))
+  end
+
   unless RUBY_VERSION =~ /1.8/
     it "should respond to #encoding" do
       expect(@client).to respond_to(:encoding)
