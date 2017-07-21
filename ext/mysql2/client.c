@@ -1328,12 +1328,12 @@ static VALUE set_init_command(VALUE self, VALUE value) {
 }
 
 static VALUE set_enable_cleartext_plugin(VALUE self, VALUE value) {
-//#ifdef MYSQL_ENABLE_CLEARTEXT_PLUGIN
+#ifdef MYSQL_ENABLE_CLEARTEXT_PLUGIN
   printf("gggggggggggggg set_enable_cleartext_plugin %d\n", (value == Qtrue ? 1 : 0));
   return _mysql_client_options(self, MYSQL_ENABLE_CLEARTEXT_PLUGIN, value);
-//#else
-//  rb_raise(cMysql2Error, "enable-cleartext-plugin is not available, you may need a newer MySQL client library");
-//#endif
+#else
+  rb_raise(cMysql2Error, "enable-cleartext-plugin is not available, you may need a newer MySQL client library");
+#endif
 }
 
 static VALUE initialize_ext(VALUE self) {
