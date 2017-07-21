@@ -36,6 +36,8 @@ have_func('rb_hash_dup')
 have_func('rb_intern3')
 have_func('rb_big_cmp')
 
+have_const('MYSQL_ENABLE_CLEARTEXT_PLUGIN')
+
 # borrowed from mysqlplus
 # http://github.com/oldmoe/mysqlplus/blob/master/ext/extconf.rb
 dirs = ENV.fetch('PATH').split(File::PATH_SEPARATOR) + %w(
